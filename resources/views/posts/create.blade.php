@@ -7,10 +7,29 @@
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" class="form-control" id="title" name="title" required>
+          @if ($errors->has('title'))
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->get('title') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         </div>
         <div class="form-group">
           <label for="body">Body</label>
           <textarea class="form-control" id="body" name="body" rows="3" required></textarea>
+          @if ($errors->has('body'))
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->get('body') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Create Post</button>

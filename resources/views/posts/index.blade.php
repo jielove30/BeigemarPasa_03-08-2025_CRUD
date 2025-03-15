@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +8,6 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <title>Posts</title>
   <style>
-
     body {
       background-color: #f3f4f6;
       font-family: 'Arial', sans-serif;
@@ -122,7 +119,7 @@
  
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand h1" href="{{ route('posts.index') }}">
+      <a class="navbar-brand h1" href="{{ route('posts.index') }}">Posts</a>
       <div class="d-flex justify-content-end">
         <a class="btn btn-sm btn-success" href="{{ route('posts.create') }}" title="Add a new post">Add Post</a>
       </div>
@@ -130,6 +127,13 @@
   </nav>
 
   <div class="container mt-6">
+    <!-- Display success message if session has 'success' key -->
+    @if (session('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    @endif
+
     <div class="row">
       @foreach ($posts as $post)
         <div class="col-12 col-sm-6 col-md-4 mb-4">
@@ -158,3 +162,4 @@
 
 </body>
 </html>
+
